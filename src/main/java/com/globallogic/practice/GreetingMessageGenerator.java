@@ -2,7 +2,11 @@ package com.globallogic.practice;
 
 public class GreetingMessageGenerator {
 
-    private final Clock clock = new Clock();
+    private final Clock clock;
+
+    public GreetingMessageGenerator(Clock clock) {
+        this.clock = clock;
+    }
 
     public String generateGreetingMessage(String fullName) {
         String momentOfDay = getMomentOfDay();
