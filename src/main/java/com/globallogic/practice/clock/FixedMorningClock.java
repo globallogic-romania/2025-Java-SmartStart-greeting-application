@@ -1,9 +1,9 @@
 package com.globallogic.practice.clock;
 
-public class FixedClock implements Clock {
+public class FixedMorningClock implements Clock {
 
     @Override
     public int getHourOfDay() {
-        return 19;
+        return 8;
     }
 }
