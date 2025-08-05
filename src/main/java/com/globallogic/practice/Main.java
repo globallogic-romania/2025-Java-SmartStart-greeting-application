@@ -1,8 +1,11 @@
 package com.globallogic.practice;
 
+import com.globallogic.practice.clock.Clock;
+import com.globallogic.practice.clock.InternalClock;
+
 public class Main {
     public static void main(String[] args) {
-        Clock clock = new Clock();
+        Clock clock = new InternalClock();
         GreetingMessageGenerator generator = new GreetingMessageGenerator(clock);
 
         String fullName = "Yosemite Sam";

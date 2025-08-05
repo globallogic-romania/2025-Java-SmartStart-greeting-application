@@ -1,5 +1,7 @@
 package com.globallogic.practice;
 
+import com.globallogic.practice.clock.Clock;
+
 public class GreetingMessageGenerator {
 
     private final Clock clock;
