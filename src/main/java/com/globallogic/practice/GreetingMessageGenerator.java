@@ -1,8 +1,8 @@
 package com.globallogic.practice;
 
-import java.util.Calendar;
-
 public class GreetingMessageGenerator {
+
+    private final Clock clock = new Clock();
 
     public String generateGreetingMessage(String fullName) {
         String momentOfDay = getMomentOfDay();
@@ -10,7 +10,7 @@ public class GreetingMessageGenerator {
     }
 
     private String getMomentOfDay() {
-        int hourOfDay = Calendar.getInstance().get(Calendar.HOUR_OF_DAY);
+        int hourOfDay = clock.getHourOfDay();
         if (5 <= hourOfDay && hourOfDay < 12) {
             return "morning";
         }
