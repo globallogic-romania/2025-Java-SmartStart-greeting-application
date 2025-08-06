@@ -1,6 +1,7 @@
 package com.globallogic.practice;
 
 import com.globallogic.practice.clock.Clock;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 
@@ -8,12 +9,19 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class GreetingMessageGeneratorTest {
 
+    Clock clock;
+    GreetingMessageGenerator generator;
+
+    @BeforeEach
+    void setup() {
+        clock = Mockito.mock(Clock.class);
+        generator = new GreetingMessageGenerator(clock);
+    }
+
     @Test
     void goodMorningYosemiteSam() {
         // Arrange (Given)
-        Clock clock = Mockito.mock(Clock.class);
         Mockito.when(clock.getHourOfDay()).thenReturn(8);
-        GreetingMessageGenerator generator = new GreetingMessageGenerator(clock);
 
         // Act (When)
         String fullName = "Yosemite Sam";
@@ -27,9 +35,7 @@ class GreetingMessageGeneratorTest {
     @Test
     void goodEveningYosemiteSam() {
         // Arrange (Given)
-        Clock clock = Mockito.mock(Clock.class);
         Mockito.when(clock.getHourOfDay()).thenReturn(19);
-        GreetingMessageGenerator generator = new GreetingMessageGenerator(clock);
 
         // Act (When)
         String fullName = "Yosemite Sam";
