@@ -8,7 +8,6 @@ import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.mockito.Mockito.times;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
 
@@ -32,7 +31,7 @@ class GreetingMessageGeneratorTest {
 
         // Assert (Then)
         assertEquals("Good morning, Yosemite Sam!", message);
-        verify(clock, times(1)).getHourOfDay();
+        verify(clock).getHourOfDay();
     }
 
     @Test
@@ -46,6 +45,6 @@ class GreetingMessageGeneratorTest {
 
         // Assert (Then)
         assertEquals("Good evening, Yosemite Sam!", message);
-        verify(clock, times(1)).getHourOfDay();
+        verify(clock).getHourOfDay();
     }
 }
