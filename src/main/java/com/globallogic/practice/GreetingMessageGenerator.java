@@ -17,15 +17,19 @@ public class GreetingMessageGenerator {
 
     private String getMomentOfDay() {
         int hourOfDay = clock.getHourOfDay();
-        if (5 <= hourOfDay && hourOfDay < 12) {
+        if (isBetween(hourOfDay, 5, 12)) {
             return "morning";
         }
-        if (12 <= hourOfDay && hourOfDay < 18) {
+        if (isBetween(hourOfDay, 12, 18)) {
             return "afternoon";
         }
-        if (18 <= hourOfDay && hourOfDay < 22) {
+        if (isBetween(hourOfDay, 18, 22)) {
             return "evening";
         }
         return "night";
+    }
+
+    static boolean isBetween(int givenValue, int lowerLimit, int upperLimit) {
+        return (lowerLimit <= givenValue) && (givenValue < upperLimit);
     }
 }
