@@ -1,9 +1,9 @@
 package com.globallogic.practice;
 
 import com.globallogic.practice.clock.Clock;
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -16,12 +16,8 @@ class GreetingMessageGeneratorTest {
     @Mock
     Clock clock;
 
+    @InjectMocks
     GreetingMessageGenerator generator;
-
-    @BeforeEach
-    void setup() {
-        generator = new GreetingMessageGenerator(clock);
-    }
 
     @Test
     void goodMorningYosemiteSam() {
