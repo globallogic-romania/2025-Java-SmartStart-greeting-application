@@ -21,6 +21,7 @@ class GreetingMessageGeneratorTest {
 
         // Assert (Then)
         assertEquals("Good morning, Yosemite Sam!", message);
+        Mockito.verify(clock, Mockito.times(1)).getHourOfDay();
     }
 
     @Test
@@ -36,5 +37,6 @@ class GreetingMessageGeneratorTest {
 
         // Assert (Then)
         assertEquals("Good evening, Yosemite Sam!", message);
+        Mockito.verify(clock, Mockito.times(1)).getHourOfDay();
     }
 }
