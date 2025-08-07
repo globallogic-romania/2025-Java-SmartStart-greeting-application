@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertNull;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
@@ -88,11 +89,20 @@ class GreetingMessageGeneratorTest {
     void generateGreetingMessageWhenFullNameIsNull() {
         var exception = assertThrows(InvalidNameException.class, () -> generator.generateGreetingMessage(null));
         assertEquals("full name cannot be null", exception.getMessage());
+        assertNull(exception.getName());
     }
 
     @Test
     void generateGreetingMessageWhenFullNameIsEmpty() {
         var exception = assertThrows(InvalidNameException.class, () -> generator.generateGreetingMessage(""));
         assertEquals("full name cannot be empty", exception.getMessage());
+        assertEquals("", exception.getName());
+    }
+
+    @Test
+    void generateGreetingMessageWhenFullNameIsBlank() {
+        var exception = assertThrows(InvalidNameException.class, () -> generator.generateGreetingMessage(" \t "));
+        assertEquals("full name cannot be blank", exception.getMessage());
+        assertEquals(" \t ", exception.getName());
     }
 }

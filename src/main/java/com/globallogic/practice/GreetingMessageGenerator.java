@@ -15,7 +15,10 @@ public class GreetingMessageGenerator {
             throw new InvalidNameException("full name cannot be null");
         }
         if (fullName.isEmpty()) {
-            throw new InvalidNameException("full name cannot be empty");
+            throw new InvalidNameException("full name cannot be empty", fullName);
+        }
+        if (fullName.isBlank()) {
+            throw new InvalidNameException("full name cannot be blank", fullName);
         }
         String momentOfDay = getMomentOfDay();
         return "Good " + momentOfDay + ", " + fullName + "!";
