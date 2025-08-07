@@ -28,8 +28,7 @@ class GreetingMessageGeneratorTest {
         when(clock.getHourOfDay()).thenReturn(8);
 
         // Act (When)
-        String fullName = "Yosemite Sam";
-        String message = generator.generateGreetingMessage(fullName);
+        String message = generator.generateGreetingMessage("Yosemite Sam");
 
         // Assert (Then)
         assertEquals("Good morning, Yosemite Sam!", message);
@@ -42,8 +41,7 @@ class GreetingMessageGeneratorTest {
         when(clock.getHourOfDay()).thenReturn(16);
 
         // Act (When)
-        String fullName = "Yosemite Sam";
-        String message = generator.generateGreetingMessage(fullName);
+        String message = generator.generateGreetingMessage("Yosemite Sam");
 
         // Assert (Then)
         assertEquals("Good afternoon, Yosemite Sam!", message);
@@ -56,8 +54,7 @@ class GreetingMessageGeneratorTest {
         when(clock.getHourOfDay()).thenReturn(19);
 
         // Act (When)
-        String fullName = "Yosemite Sam";
-        String message = generator.generateGreetingMessage(fullName);
+        String message = generator.generateGreetingMessage("Yosemite Sam");
 
         // Assert (Then)
         assertEquals("Good evening, Yosemite Sam!", message);
@@ -70,8 +67,7 @@ class GreetingMessageGeneratorTest {
         when(clock.getHourOfDay()).thenReturn(23);
 
         // Act (When)
-        String fullName = "Yosemite Sam";
-        String message = generator.generateGreetingMessage(fullName);
+        String message = generator.generateGreetingMessage("Yosemite Sam");
 
         // Assert (Then)
         assertEquals("Good night, Yosemite Sam!", message);
