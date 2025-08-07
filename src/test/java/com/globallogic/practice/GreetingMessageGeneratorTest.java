@@ -86,7 +86,7 @@ class GreetingMessageGeneratorTest {
 
     @Test
     void generateGreetingMessageWhenFullNameIsNull() {
-        IllegalArgumentException exception = assertThrows(IllegalArgumentException.class, () -> generator.generateGreetingMessage(null));
+        var exception = assertThrows(IllegalArgumentException.class, () -> generator.generateGreetingMessage(null));
         assertEquals("full name cannot be null", exception.getMessage());
     }
 }
