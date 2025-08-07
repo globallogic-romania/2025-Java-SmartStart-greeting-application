@@ -82,4 +82,13 @@ class GreetingMessageGeneratorTest {
         assertFalse(GreetingMessageGenerator.isBetween(8, 10, 11));
         assertFalse(GreetingMessageGenerator.isBetween(12, 10, 11));
     }
+
+    @Test
+    void generateGreetingMessageWhenFullNameIsNull() {
+        try {
+            generator.generateGreetingMessage(null);
+        } catch (IllegalArgumentException exception) {
+            assertEquals("full name cannot be null", exception.getMessage());
+        }
+    }
 }

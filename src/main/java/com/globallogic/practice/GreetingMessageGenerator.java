@@ -11,6 +11,9 @@ public class GreetingMessageGenerator {
     }
 
     public String generateGreetingMessage(String fullName) {
+        if (fullName == null) {
+            throw new IllegalArgumentException("full name cannot be null");
+        }
         String momentOfDay = getMomentOfDay();
         return "Good " + momentOfDay + ", " + fullName + "!";
     }
