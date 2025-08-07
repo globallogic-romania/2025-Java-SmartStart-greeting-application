@@ -12,10 +12,10 @@ public class GreetingMessageGenerator {
 
     public String generateGreetingMessage(String fullName) {
         if (fullName == null) {
-            throw new NullPointerException("full name cannot be null");
+            throw new InvalidNameException("full name cannot be null");
         }
         if (fullName.isEmpty()) {
-            throw new IllegalArgumentException("full name cannot be empty");
+            throw new InvalidNameException("full name cannot be empty");
         }
         String momentOfDay = getMomentOfDay();
         return "Good " + momentOfDay + ", " + fullName + "!";

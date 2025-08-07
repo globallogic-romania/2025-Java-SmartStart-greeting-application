@@ -86,13 +86,13 @@ class GreetingMessageGeneratorTest {
 
     @Test
     void generateGreetingMessageWhenFullNameIsNull() {
-        var exception = assertThrows(NullPointerException.class, () -> generator.generateGreetingMessage(null));
+        var exception = assertThrows(InvalidNameException.class, () -> generator.generateGreetingMessage(null));
         assertEquals("full name cannot be null", exception.getMessage());
     }
 
     @Test
     void generateGreetingMessageWhenFullNameIsEmpty() {
-        var exception = assertThrows(IllegalArgumentException.class, () -> generator.generateGreetingMessage(""));
+        var exception = assertThrows(InvalidNameException.class, () -> generator.generateGreetingMessage(""));
         assertEquals("full name cannot be empty", exception.getMessage());
     }
 }
