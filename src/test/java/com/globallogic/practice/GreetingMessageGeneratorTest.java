@@ -3,6 +3,7 @@ package com.globallogic.practice;
 import com.globallogic.practice.clock.Clock;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.junit.jupiter.api.function.Executable;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
@@ -86,6 +87,11 @@ class GreetingMessageGeneratorTest {
 
     @Test
     void generateGreetingMessageWhenFullNameIsNull() {
-        assertThrows(IllegalArgumentException.class, new GenerateWithNullExecutable(generator));
+        assertThrows(IllegalArgumentException.class, new Executable() {
+            @Override
+            public void execute() throws Throwable {
+                generator.generateGreetingMessage(null);
+            }
+        });
     }
 }
