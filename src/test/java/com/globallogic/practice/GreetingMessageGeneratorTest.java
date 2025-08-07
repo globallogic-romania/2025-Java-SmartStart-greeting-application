@@ -87,11 +87,6 @@ class GreetingMessageGeneratorTest {
 
     @Test
     void generateGreetingMessageWhenFullNameIsNull() {
-        assertThrows(IllegalArgumentException.class, new Executable() {
-            @Override
-            public void execute() throws Throwable {
-                generator.generateGreetingMessage(null);
-            }
-        });
+        assertThrows(IllegalArgumentException.class, () -> generator.generateGreetingMessage(null));
     }
 }
