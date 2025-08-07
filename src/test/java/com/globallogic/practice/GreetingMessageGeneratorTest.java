@@ -9,6 +9,7 @@ import org.mockito.junit.jupiter.MockitoExtension;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.mockito.Mockito.verify;
 import static org.mockito.Mockito.when;
@@ -85,10 +86,6 @@ class GreetingMessageGeneratorTest {
 
     @Test
     void generateGreetingMessageWhenFullNameIsNull() {
-        try {
-            generator.generateGreetingMessage(null);
-        } catch (IllegalArgumentException exception) {
-            assertEquals("full name cannot be null", exception.getMessage());
-        }
+        assertThrows(IllegalArgumentException.class, new GenerateWithNullExecutable(generator));
     }
 }
